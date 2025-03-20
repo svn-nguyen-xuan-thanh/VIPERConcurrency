@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7EE2D8C40D800331975 /* Alamofire */; };
+		F47DC7F62D8C425700331975 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7F52D8C425700331975 /* Swinject */; };
+		F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FA2D8C429700331975 /* SwinjectStoryboard */; };
+		F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FD2D8C42E200331975 /* RxCocoa */; };
+		F47DC8012D8C42F500331975 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8002D8C42F500331975 /* RxSwift */; };
+		F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8C22D8C4A5B00331975 /* RswiftLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,16 +59,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */,
+				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
+				F47DC8012D8C42F500331975 /* RxSwift in Frameworks */,
+				F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */,
+				F47DC7F62D8C425700331975 /* Swinject in Frameworks */,
+				F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F47DC7FF2D8C42F500331975 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4E9DD372D8C3D400055BBBD = {
 			isa = PBXGroup;
 			children = (
 				F4E9DD422D8C3D400055BBBD /* VIPERConcurrency */,
+				F47DC7FF2D8C42F500331975 /* Frameworks */,
 				F4E9DD412D8C3D400055BBBD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +109,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F47DC8BF2D8C49B900331975 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				F4E9DD422D8C3D400055BBBD /* VIPERConcurrency */,
@@ -98,6 +117,11 @@
 			name = VIPERConcurrency;
 			packageProductDependencies = (
 				F47DC7EE2D8C40D800331975 /* Alamofire */,
+				F47DC7F52D8C425700331975 /* Swinject */,
+				F47DC7FA2D8C429700331975 /* SwinjectStoryboard */,
+				F47DC7FD2D8C42E200331975 /* RxCocoa */,
+				F47DC8002D8C42F500331975 /* RxSwift */,
+				F47DC8C22D8C4A5B00331975 /* RswiftLibrary */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -129,6 +153,10 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F47DC7F42D8C425700331975 /* XCRemoteSwiftPackageReference "Swinject" */,
+				F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
+				F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -160,6 +188,13 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F47DC8BF2D8C49B900331975 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F47DC8BE2D8C49B900331975 /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		F4E9DD542D8C3D410055BBBD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -173,8 +208,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -183,6 +217,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thanhfnx.VIPERConcurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
@@ -196,7 +234,7 @@
 				SWIFT_UPCOMING_FEATURE_ISOLATED_DEFAULT_VALUES = YES;
 				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -212,8 +250,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -222,6 +259,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thanhfnx.VIPERConcurrency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = YES;
@@ -235,7 +276,7 @@
 				SWIFT_UPCOMING_FEATURE_ISOLATED_DEFAULT_VALUES = YES;
 				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -414,6 +455,38 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		F47DC7F42D8C425700331975 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+		F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectStoryboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.3;
+			};
+		};
+		F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+		F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -421,6 +494,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		F47DC7F52D8C425700331975 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC7F42D8C425700331975 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		F47DC7FA2D8C429700331975 /* SwinjectStoryboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
+			productName = SwinjectStoryboard;
+		};
+		F47DC7FD2D8C42E200331975 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		F47DC8002D8C42F500331975 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		F47DC8BE2D8C49B900331975 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		F47DC8C22D8C4A5B00331975 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
