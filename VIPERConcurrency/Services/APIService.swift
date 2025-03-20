@@ -23,6 +23,7 @@ enum APIError: Error {
     }
 }
 
+@MainActor
 final class APIService {
     private let session: Session
     let connectivityManager: ConnectivityProtocol

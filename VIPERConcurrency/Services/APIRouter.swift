@@ -42,7 +42,7 @@ enum APIRouter {
         }
     }
 
-    private var params: [String: Any]? {
+    private var params: [String: any Sendable]? {
         switch self {
         case let .login(userInfo):
             return ["username": userInfo.username, "password": userInfo.password]

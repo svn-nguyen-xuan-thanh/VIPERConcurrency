@@ -7,6 +7,7 @@
 
 import Reachability
 
+@MainActor
 protocol ConnectivityProtocol {
     var isReachable: Bool { get }
 }

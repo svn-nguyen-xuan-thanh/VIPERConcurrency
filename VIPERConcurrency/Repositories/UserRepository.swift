@@ -7,6 +7,7 @@
 
 import RxSwift
 
+@MainActor
 protocol UserRepository {
     func login(with userInfo: UserInfo)  -> Single<UserDetail>
 }
