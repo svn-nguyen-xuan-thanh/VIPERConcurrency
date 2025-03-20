@@ -8,5 +8,4 @@
 import UIKit
 
 final class AppRouter: AppRouterProtocol {
-    weak var viewController: AppViewController?
 }

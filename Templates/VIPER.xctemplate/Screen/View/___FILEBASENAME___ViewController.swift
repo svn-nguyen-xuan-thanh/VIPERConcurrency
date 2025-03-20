@@ -11,5 +11,5 @@ final class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
     }
 }
 
-extension ___FILEBASENAMEASIDENTIFIER___:___VARIABLE_productName:identifier___ViewProtocol {
+extension ___FILEBASENAMEASIDENTIFIER___: ___VARIABLE_productName:identifier___ViewProtocol {
 }

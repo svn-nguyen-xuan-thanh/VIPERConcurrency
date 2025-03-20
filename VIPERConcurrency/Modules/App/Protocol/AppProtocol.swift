@@ -8,10 +8,6 @@
 import UIKit
 
 @MainActor
-protocol AppViewProtocol: AnyObject {
-}
-
-@MainActor
 protocol AppPresenterProtocol: AnyObject {
 }
 

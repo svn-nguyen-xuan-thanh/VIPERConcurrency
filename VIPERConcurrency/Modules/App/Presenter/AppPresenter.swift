@@ -8,7 +8,6 @@
 import UIKit
 
 final class AppPresenter: AppPresenterProtocol {
-    weak var view: AppViewProtocol?
     var interactor: AppInteractorInputProtocol!
     var router: AppRouterProtocol!
 }

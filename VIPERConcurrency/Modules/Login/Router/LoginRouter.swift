@@ -9,4 +9,8 @@ import UIKit
 
 final class LoginRouter: LoginRouterProtocol {
     weak var viewController: LoginViewController?
+
+    func navigateToHomeScreen() {
+        
+    }
 }

@@ -13,6 +13,7 @@
 		F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FD2D8C42E200331975 /* RxCocoa */; };
 		F47DC8012D8C42F500331975 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8002D8C42F500331975 /* RxSwift */; };
 		F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8C22D8C4A5B00331975 /* RswiftLibrary */; };
+		F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8F12D8C5DC300331975 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */,
+				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
 				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
 				F47DC8012D8C42F500331975 /* RxSwift in Frameworks */,
 				F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */,
@@ -122,6 +124,7 @@
 				F47DC7FD2D8C42E200331975 /* RxCocoa */,
 				F47DC8002D8C42F500331975 /* RxSwift */,
 				F47DC8C22D8C4A5B00331975 /* RswiftLibrary */,
+				F47DC8F12D8C5DC300331975 /* Reachability */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -157,6 +160,7 @@
 				F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
 				F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */,
+				F47DC8F02D8C5DC300331975 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -485,6 +489,14 @@
 				minimumVersion = 7.8.0;
 			};
 		};
+		F47DC8F02D8C5DC300331975 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -522,6 +534,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */;
 			productName = RswiftLibrary;
+		};
+		F47DC8F12D8C5DC300331975 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F47DC8F02D8C5DC300331975 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
