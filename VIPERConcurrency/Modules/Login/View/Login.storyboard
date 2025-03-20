@@ -43,6 +43,9 @@
                                 <rect key="frame" x="163.66666666666666" y="529" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K0j-fc-8hJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -63,6 +66,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="LMu-d1-KCh" id="7jH-1y-AkY"/>
                         <outlet property="passwordTextField" destination="PUu-h3-762" id="MkC-Z2-Osf"/>
                         <outlet property="usernameTextField" destination="lPl-vq-OBR" id="IFI-mG-ikr"/>
                     </connections>

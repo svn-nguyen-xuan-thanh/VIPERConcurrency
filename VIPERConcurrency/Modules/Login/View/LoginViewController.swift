@@ -10,6 +10,7 @@ import UIKit
 final class LoginViewController: UIViewController {
     @IBOutlet private var usernameTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var loginButton: UIButton!
 
     var presenter: LoginPresenterProtocol!
 
@@ -21,9 +22,11 @@ final class LoginViewController: UIViewController {
 
         // Alternative code, which one is better?
         // https://www.massicotte.org/awakefromnib
+        /*
         MainActor.assumeIsolated {
             setupViews()
         }
+         */
     }
 
     override func viewDidLoad() {
@@ -32,6 +35,10 @@ final class LoginViewController: UIViewController {
 
     private func setupViews() {
         passwordTextField.isSecureTextEntry = true
+        loginButton.isEnabled = false
+    }
+
+    @IBAction private func loginButtonTapped(_ sender: Any) {
     }
 }
 
