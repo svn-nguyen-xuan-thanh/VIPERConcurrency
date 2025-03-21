@@ -12,7 +12,7 @@ final class LoginPresenter: LoginPresenterProtocol {
     var interactor: LoginInteractorInputProtocol!
     var router: LoginRouterProtocol!
 
-    func login(with userInfo: UserInfo) {
+    func login(with userInfo: UserLoginInfo) {
         interactor.login(with: userInfo)
     }
 }
@@ -25,7 +25,11 @@ extension LoginPresenter:LoginInteractorOutputProtocol {
         }
     }
 
-    func onLoginFailed() {
-        view?.showMessage("Login failed! Username or password is incorrect!")
+    func onLoginFailed(with error: Error) {
+        var message = "Login failed! "
+        if let error = error as? APIError {
+            message.append("\(error.errorMessage)!")
+        }
+        view?.showMessage(message)
     }
 }

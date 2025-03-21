@@ -7,54 +7,82 @@
 
 import Alamofire
 import Foundation
-import RxSwift
 
 enum APIError: Error {
     case offline
+    case invalidResponse(message: String)
     case unknown
 
-    var localDescription: String {
+    var errorMessage: String {
         switch self {
         case .offline:
             return "No internet connection"
         case .unknown:
             return "Unknown error"
+        case let .invalidResponse(message):
+            return message
         }
     }
 }
 
-@MainActor
+struct ErrorMessage: Decodable {
+    let message: String
+}
+
 final class APIService {
     private let session: Session
     let connectivityManager: ConnectivityProtocol
 
     init(
         session: Session = Session.default,
-        connectivityManager: ConnectivityProtocol = ConnectivityManager.shared
+        connectivityManager: ConnectivityProtocol
     ) {
         self.session = session
         self.connectivityManager = connectivityManager
     }
 
-    func request<T: Decodable>(router: APIRouter) -> Single<T> {
-        return Single<T>.create { singleEvent in
-            if !self.connectivityManager.isReachable {
-                singleEvent(.failure(APIError.offline))
-                return Disposables.create()
-            }
-            let request = self.session.request(router)
-            request.responseData { response in
+    func request<T: Decodable>(router: APIRouter) async throws -> T {
+        if !connectivityManager.isReachable {
+            throw APIError.offline
+        }
+        return try await withCheckedThrowingContinuation { continuation in
+            session.request(router).responseData { response in
                 print("[API]----Request: \(router.urlRequest?.httpMethod ?? "") " + (router.urlRequest?.url?.absoluteString ?? ""))
                 print("[API]----Response: \(String(data: response.data ?? Data(), encoding: .utf8)!)")
-                if let data = response.data, let value = try? JSONDecoder().decode(T.self, from: data) {
-                    singleEvent(.success(value))
+                if let data = response.data {
+                    if let value = try? JSONDecoder().decode(T.self, from: data) {
+                        continuation.resume(returning: value)
+                    } else if let message = try? JSONDecoder().decode(ErrorMessage.self, from: data) {
+                        continuation.resume(throwing: APIError.invalidResponse(message: message.message))
+                    } else {
+                        continuation.resume(throwing: APIError.unknown)
+                    }
                 } else {
-                    singleEvent(.failure(APIError.unknown))
+                    continuation.resume(throwing: APIError.unknown)
                 }
-            }
-            return Disposables.create {
-                request.cancel()
             }
         }
     }
+
+//    func request<T: Decodable>(router: APIRouter) -> Single<T> {
+//        return Single<T>.create { singleEvent in
+//            if !self.connectivityManager.isReachable {
+//                singleEvent(.failure(APIError.offline))
+//                return Disposables.create()
+//            }
+//            let request = self.session.request(router)
+//            request.responseData { response in
+//                print("[API]----Request: \(router.urlRequest?.httpMethod ?? "") " + (router.urlRequest?.url?.absoluteString ?? ""))
+//                print("[API]----Response: \(String(data: response.data ?? Data(), encoding: .utf8)!)")
+//                if let data = response.data, let value = try? JSONDecoder().decode(T.self, from: data) {
+//                    singleEvent(.success(value))
+//                } else {
+//                    singleEvent(.failure(APIError.unknown))
+//                }
+//            }
+//            return Disposables.create {
+//                request.cancel()
+//            }
+//        }
+//    }
 }

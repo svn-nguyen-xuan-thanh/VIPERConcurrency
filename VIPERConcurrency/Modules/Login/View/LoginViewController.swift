@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+import Combine
 
 final class LoginViewController: UIViewController {
     @IBOutlet private var usernameTextField: UITextField!
@@ -16,21 +15,17 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var messageLabel: UILabel!
 
     var presenter: LoginPresenterProtocol!
-    private let disposeBag = DisposeBag()
+
+    private let usernameSubject = CurrentValueSubject<String, Never>("")
+    private let passwordSubject = CurrentValueSubject<String, Never>("")
+    private var cancellables = Set<AnyCancellable>()
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        // https://www.massicotte.org/awakefromnib
         Task { @MainActor in
             setupViews()
         }
-
-        // Alternative code, which one is better?
-        // https://www.massicotte.org/awakefromnib
-        /*
-         MainActor.assumeIsolated {
-         setupViews()
-         }
-         */
     }
 
     override func viewDidLoad() {
@@ -44,23 +39,30 @@ final class LoginViewController: UIViewController {
     }
 
     private func bindViews() {
-        let usernameValid = usernameTextField.rx.text.orEmpty
-            .map { !$0.isEmpty }
+        usernameSubject.send(usernameTextField.text ?? "")
+        passwordSubject.send(passwordTextField.text ?? "")
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: usernameTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+            .subscribe(usernameSubject)
+            .store(in: &cancellables)
 
-        let passwordValid = passwordTextField.rx.text.orEmpty
-            .map { !$0.isEmpty }
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: passwordTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+            .subscribe(passwordSubject)
+            .store(in: &cancellables)
 
-        Observable.combineLatest(usernameValid, passwordValid)
-            .map { $0 && $1 }
-            .bind(to: loginButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+        Publishers.CombineLatest(usernameSubject, passwordSubject)
+            .map { !$0.isEmpty && !$1.isEmpty }
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isEnabled, on: loginButton)
+            .store(in: &cancellables)
     }
 
     @IBAction private func loginButtonTapped(_ sender: Any) {
-        let userName = usernameTextField.text ?? ""
+        let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
 
-        let userInfo = UserInfo(username: userName, password: password)
+        let userInfo = UserLoginInfo(username: username, password: password)
         presenter.login(with: userInfo)
     }
 }

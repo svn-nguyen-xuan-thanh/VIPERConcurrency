@@ -15,7 +15,7 @@ enum Constants {
 }
 
 enum APIRouter {
-    case login(userInfo: UserInfo)
+    case login(userInfo: UserLoginInfo)
 
     private var method: HTTPMethod {
         switch self {

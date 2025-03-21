@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */; };
+		F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E12D8CEEFC007BBEE8 /* ProgressHUD */; };
+		F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E82D8CF921007BBEE8 /* KeychainAccess */; };
 		F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7EE2D8C40D800331975 /* Alamofire */; };
 		F47DC7F62D8C425700331975 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7F52D8C425700331975 /* Swinject */; };
 		F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FA2D8C429700331975 /* SwinjectStoryboard */; };
-		F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FD2D8C42E200331975 /* RxCocoa */; };
-		F47DC8012D8C42F500331975 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8002D8C42F500331975 /* RxSwift */; };
 		F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8C22D8C4A5B00331975 /* RswiftLibrary */; };
 		F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC8F12D8C5DC300331975 /* Reachability */; };
 /* End PBXBuildFile section */
@@ -60,10 +61,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */,
+				F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */,
+				F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */,
 				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
+				F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */,
 				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
-				F47DC8012D8C42F500331975 /* RxSwift in Frameworks */,
-				F47DC7FE2D8C42E200331975 /* RxCocoa in Frameworks */,
 				F47DC7F62D8C425700331975 /* Swinject in Frameworks */,
 				F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */,
 			);
@@ -121,10 +123,11 @@
 				F47DC7EE2D8C40D800331975 /* Alamofire */,
 				F47DC7F52D8C425700331975 /* Swinject */,
 				F47DC7FA2D8C429700331975 /* SwinjectStoryboard */,
-				F47DC7FD2D8C42E200331975 /* RxCocoa */,
-				F47DC8002D8C42F500331975 /* RxSwift */,
 				F47DC8C22D8C4A5B00331975 /* RswiftLibrary */,
 				F47DC8F12D8C5DC300331975 /* Reachability */,
+				F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */,
+				F43561E12D8CEEFC007BBEE8 /* ProgressHUD */,
+				F43561E82D8CF921007BBEE8 /* KeychainAccess */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -158,9 +161,11 @@
 				F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F47DC7F42D8C425700331975 /* XCRemoteSwiftPackageReference "Swinject" */,
 				F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
-				F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */,
 				F47DC8F02D8C5DC300331975 /* XCRemoteSwiftPackageReference "Reachability" */,
+				F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				F43561E02D8CEEFC007BBEE8 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -449,6 +454,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		F43561E02D8CEEFC007BBEE8 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
+		F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -473,14 +502,6 @@
 				minimumVersion = 2.2.3;
 			};
 		};
-		F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.9.0;
-			};
-		};
 		F47DC8BB2D8C499C00331975 /* XCRemoteSwiftPackageReference "R" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift";
@@ -500,6 +521,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		F43561E12D8CEEFC007BBEE8 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43561E02D8CEEFC007BBEE8 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
+		};
+		F43561E82D8CF921007BBEE8 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		F47DC7EE2D8C40D800331975 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -514,16 +550,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F47DC7F92D8C429700331975 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
 			productName = SwinjectStoryboard;
-		};
-		F47DC7FD2D8C42E200331975 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		F47DC8002D8C42F500331975 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F47DC7FC2D8C42E200331975 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 		F47DC8BE2D8C49B900331975 /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;

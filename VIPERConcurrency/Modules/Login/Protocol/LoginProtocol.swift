@@ -14,18 +14,18 @@ protocol LoginViewProtocol: AnyObject {
 
 @MainActor
 protocol LoginPresenterProtocol: AnyObject {
-    func login(with userInfo: UserInfo)
+    func login(with userInfo: UserLoginInfo)
 }
 
 @MainActor
 protocol LoginInteractorInputProtocol: AnyObject {
-    func login(with userInfo: UserInfo)
+    func login(with userInfo: UserLoginInfo)
 }
 
 @MainActor
 protocol LoginInteractorOutputProtocol: AnyObject {
     func onloginSuccess(with userDetail: UserDetail)
-    func onLoginFailed()
+    func onLoginFailed(with error: Error)
 }
 
 @MainActor

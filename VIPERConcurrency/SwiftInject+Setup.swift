@@ -12,8 +12,13 @@ extension SwinjectStoryboard {
     class func setup() {
         Container.loggingFunction = nil
 
-        defaultContainer.register(APIService.self) { _ in
-            return APIService()
+        defaultContainer.register(ConnectivityProtocol.self) { _ in
+            return ConnectivityManager()
+        }
+
+        defaultContainer.register(APIService.self) { resolver in
+            let connectivityManager = resolver.resolve(ConnectivityProtocol.self)!
+            return APIService(connectivityManager: connectivityManager)
         }
         .inObjectScope(.container)
 

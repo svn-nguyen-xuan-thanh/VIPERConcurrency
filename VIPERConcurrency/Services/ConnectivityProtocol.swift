@@ -7,18 +7,16 @@
 
 import Reachability
 
-@MainActor
 protocol ConnectivityProtocol {
     var isReachable: Bool { get }
 }
 
 final class ConnectivityManager: ConnectivityProtocol {
-    static let shared = ConnectivityManager()
-    var reachability: Reachability?
+    private var reachability: Reachability?
 
-    private init() {
+    init() {
         reachability = try? Reachability()
-            try? reachability?.startNotifier()
+        try? reachability?.startNotifier()
     }
 
     var isReachable: Bool {
