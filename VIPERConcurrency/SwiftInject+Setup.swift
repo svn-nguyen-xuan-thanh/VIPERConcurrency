@@ -16,8 +16,8 @@ extension SwinjectStoryboard {
             return ConnectivityManager()
         }
 
-        defaultContainer.register(KeychainRepository.self) { _ in
-            return KeychainRepositoryImpl()
+        defaultContainer.register(KeychainServiceProtocol.self) { _ in
+            return KeychainService()
         }
 
         defaultContainer.register(APIService.self) { resolver in
@@ -56,6 +56,14 @@ extension SwinjectStoryboard {
             let assembler = Assembler([HomeAssembly()])
             controller.presenter = assembler.resolver.resolve(
                 HomePresenterProtocol.self,
+                argument: controller
+            )
+        }
+
+        defaultContainer.storyboardInitCompleted(SettingsViewController.self) { resolver, controller in
+            let assembler = Assembler([SettingsAssembly()])
+            controller.presenter = assembler.resolver.resolve(
+                SettingsPresenterProtocol.self,
                 argument: controller
             )
         }

@@ -27,14 +27,9 @@ enum APIError: Error {
 }
 
 final class APIService {
-    private let session: Session
     private let connectivityManager: ConnectivityProtocol
 
-    init(
-        session: Session = Session.default,
-        connectivityManager: ConnectivityProtocol
-    ) {
-        self.session = session
+    init(connectivityManager: ConnectivityProtocol) {
         self.connectivityManager = connectivityManager
     }
 
@@ -43,31 +38,41 @@ final class APIService {
             throw APIError.offline
         }
         await ProgressHUD.animate()
+        let request = try router.asURLRequest()
+        let (data, _) = try await URLSession.shared.data(for: request)
+        await ProgressHUD.dismiss()
+        print("[API]----Request: \(request.httpMethod ?? "") " + (request.url?.absoluteString ?? ""))
+        print("[API]----Response: \(String(data: data, encoding: .utf8)!)")
+        if let value = try? JSONDecoder().decode(T.self, from: data) {
+            return value
+        } else if let message = try? JSONDecoder().decode(ErrorMessage.self, from: data) {
+            throw APIError.invalidResponse(message: message.message)
+        } else {
+            throw APIError.unknown
+        }
+    }
+
+    func requestAlamofire<T: Decodable>(router: APIRouter) async throws -> T {
+        if !connectivityManager.isReachable {
+            throw APIError.offline
+        }
+        await ProgressHUD.animate()
         return try await withCheckedThrowingContinuation { continuation in
-            session.request(router).responseData { response in
+            Session.default.request(router).responseData { response in
+                Task {
+                    await ProgressHUD.dismiss()
+                }
                 print("[API]----Request: \(router.urlRequest?.httpMethod ?? "") " + (router.urlRequest?.url?.absoluteString ?? ""))
                 print("[API]----Response: \(String(data: response.data ?? Data(), encoding: .utf8)!)")
                 if let data = response.data {
                     if let value = try? JSONDecoder().decode(T.self, from: data) {
-                        Task {
-                            await ProgressHUD.dismiss()
-                        }
                         continuation.resume(returning: value)
                     } else if let message = try? JSONDecoder().decode(ErrorMessage.self, from: data) {
-                        Task {
-                            await ProgressHUD.dismiss()
-                        }
                         continuation.resume(throwing: APIError.invalidResponse(message: message.message))
                     } else {
-                        Task {
-                            await ProgressHUD.dismiss()
-                        }
                         continuation.resume(throwing: APIError.unknown)
                     }
                 } else {
-                    Task {
-                        await ProgressHUD.dismiss()
-                    }
                     continuation.resume(throwing: APIError.unknown)
                 }
             }

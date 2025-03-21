@@ -12,13 +12,13 @@ final class HomePresenter: HomePresenterProtocol {
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorInputProtocol!
     var router: HomeRouterProtocol!
-    private var keychainRepository = SwinjectStoryboard.defaultContainer.resolve(KeychainRepository.self)!
+    private var keychainService = SwinjectStoryboard.defaultContainer.resolve(KeychainServiceProtocol.self)!
 
     var products: [Product] = []
 
     func onViewDidLoad() {
         Task {
-            if let userDetail = await keychainRepository.read(ofType: UserDetail.self, key: .userDetail) {
+            if let userDetail = await keychainService.read(ofType: UserDetail.self, key: .userDetail) {
                 view?.updateView(with: userDetail)
                 interactor.fetchProducts()
             } else {
@@ -29,6 +29,10 @@ final class HomePresenter: HomePresenterProtocol {
 
     func fetchProducts() {
         interactor.fetchProducts()
+    }
+
+    func navigateToSettingsScreen() {
+        router.navigateToSettingsScreen()
     }
 }
 

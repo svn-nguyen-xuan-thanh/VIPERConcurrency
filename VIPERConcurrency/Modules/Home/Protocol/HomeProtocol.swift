@@ -20,6 +20,7 @@ protocol HomePresenterProtocol: AnyObject {
 
     func onViewDidLoad()
     func fetchProducts()
+    func navigateToSettingsScreen()
 }
 
 @MainActor
@@ -36,4 +37,5 @@ protocol HomeInteractorOutputProtocol: AnyObject {
 @MainActor
 protocol HomeRouterProtocol: AnyObject {
     func navigateToLoginScreen()
+    func navigateToSettingsScreen()
 }

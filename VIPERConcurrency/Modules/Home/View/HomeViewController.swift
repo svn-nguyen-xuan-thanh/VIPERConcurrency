@@ -33,6 +33,10 @@ final class HomeViewController: UIViewController {
     @objc private func reloadProducts() {
         presenter.fetchProducts()
     }
+
+    @IBAction private func settingsButtonTapped(_ sender: Any) {
+        presenter.navigateToSettingsScreen()
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {

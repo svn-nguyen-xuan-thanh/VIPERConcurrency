@@ -59,10 +59,12 @@ final class LoginViewController: UIViewController {
     }
 
     @IBAction private func loginButtonTapped(_ sender: Any) {
+        view.endEditing(true)
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
 
         let userInfo = UserLoginInfo(username: username, password: password)
+        loginButton.isEnabled = false
         presenter.login(with: userInfo)
     }
 }

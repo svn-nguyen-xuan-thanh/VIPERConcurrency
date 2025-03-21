@@ -11,11 +11,11 @@ import SwinjectStoryboard
 final class AppPresenter: AppPresenterProtocol {
     var interactor: AppInteractorInputProtocol!
     var router: AppRouterProtocol!
-    private let keychainRepository = SwinjectStoryboard.defaultContainer.resolve(KeychainRepository.self)!
+    private let keychainService = SwinjectStoryboard.defaultContainer.resolve(KeychainServiceProtocol.self)!
 
     func start() {
         Task {
-            if let _ = await keychainRepository.read(ofType: UserDetail.self, key: .userDetail) {
+            if let _ = await keychainService.read(ofType: UserDetail.self, key: .userDetail) {
                 router.navigateToHomeScreen()
             } else {
                 router.navigateToLoginScreen()

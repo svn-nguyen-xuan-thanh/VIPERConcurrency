@@ -14,4 +14,11 @@ final class HomeRouter: HomeRouterProtocol {
         let loginViewController = R.storyboard.login.instantiateInitialViewController()
         UIApplication.keyWindow()?.rootViewController = loginViewController
     }
+
+    func navigateToSettingsScreen() {
+        guard let settingsViewController = R.storyboard.settings.instantiateInitialViewController() else {
+            return
+        }
+        viewController?.navigationController?.pushViewController(settingsViewController, animated: true)
+    }
 }
