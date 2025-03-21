@@ -8,23 +8,26 @@
 import Foundation
 import KeychainAccess
 
-protocol KeychainRepository {
-    var userDetail: UserDetail? { get set }
+protocol KeychainRepository: Actor {
+    func write<T: Encodable>(_ object: T, key: KeychainAccessKey)
+    func read<T: Decodable>(ofType type: T.Type, key: KeychainAccessKey) -> T?
+
 }
 
-final class KeychainRepositoryImpl: KeychainRepository {
+enum KeychainAccessKey: String {
+    case userDetail
+}
+
+actor KeychainRepositoryImpl: KeychainRepository {
     private let keychain =  Keychain(service: "thanhfnx")
 
-    var userDetail: UserDetail? {
-        get {
-            if let data = try? keychain.getData("userDetail"),
-               let result = try? JSONDecoder().decode(UserDetail.self, from: data) {
-                return result
-            }
-            return nil
-        }
-        set {
-            try? keychain.set(JSONEncoder().encode(newValue), key: "userDetail")
-        }
+    func write<T: Encodable>(_ object: T, key: KeychainAccessKey) {
+        guard let data = try? JSONEncoder().encode(object) else { return }
+        try? keychain.set(data, key: key.rawValue)
+    }
+
+    func read<T: Decodable>(ofType type: T.Type, key: KeychainAccessKey) -> T? {
+        guard let data = try? keychain.getData(key.rawValue) else { return nil }
+        return try? JSONDecoder().decode(T.self, from: data)
     }
 }

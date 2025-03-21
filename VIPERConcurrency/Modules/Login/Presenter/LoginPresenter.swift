@@ -22,8 +22,8 @@ final class LoginPresenter: LoginPresenterProtocol {
 extension LoginPresenter:LoginInteractorOutputProtocol {
     func onloginSuccess(with userDetail: UserDetail) {
         view?.showMessage("Login successfully! Redirecting to home screen...")
-        keychainRepository.userDetail = userDetail
         Task {
+            await keychainRepository.write(userDetail, key: .userDetail)
             try? await Task.sleep(nanoseconds: 2 * 1000000000)
             router.navigateToHomeScreen()
         }

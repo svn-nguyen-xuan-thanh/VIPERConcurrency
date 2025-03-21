@@ -14,10 +14,12 @@ final class AppPresenter: AppPresenterProtocol {
     private let keychainRepository = SwinjectStoryboard.defaultContainer.resolve(KeychainRepository.self)!
 
     func start() {
-        if let _ = keychainRepository.userDetail {
-            router.navigateToHomeScreen()
-        } else {
-            router.navigateToLoginScreen()
+        Task {
+            if let _ = await keychainRepository.read(ofType: UserDetail.self, key: .userDetail) {
+                router.navigateToHomeScreen()
+            } else {
+                router.navigateToLoginScreen()
+            }
         }
     }
 }

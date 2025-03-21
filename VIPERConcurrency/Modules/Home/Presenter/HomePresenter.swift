@@ -17,11 +17,13 @@ final class HomePresenter: HomePresenterProtocol {
     var products: [Product] = []
 
     func onViewDidLoad() {
-        if let userDetail = keychainRepository.userDetail {
-            view?.updateView(with: userDetail)
-            interactor.fetchProducts()
-        } else {
-            router.navigateToLoginScreen()
+        Task {
+            if let userDetail = await keychainRepository.read(ofType: UserDetail.self, key: .userDetail) {
+                view?.updateView(with: userDetail)
+                interactor.fetchProducts()
+            } else {
+                router.navigateToLoginScreen()
+            }
         }
     }
 
