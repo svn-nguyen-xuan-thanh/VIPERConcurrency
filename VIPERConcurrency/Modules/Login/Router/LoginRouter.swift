@@ -11,6 +11,7 @@ final class LoginRouter: LoginRouterProtocol {
     weak var viewController: LoginViewController?
 
     func navigateToHomeScreen() {
-        
+        let keyWindow = UIApplication.keyWindow()
+        keyWindow?.rootViewController = R.storyboard.home.instantiateInitialViewController()
     }
 }

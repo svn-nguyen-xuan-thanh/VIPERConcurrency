@@ -9,4 +9,9 @@ import UIKit
 
 final class HomeRouter: HomeRouterProtocol {
     weak var viewController: HomeViewController?
+
+    func navigateToLoginScreen() {
+        let loginViewController = R.storyboard.login.instantiateInitialViewController()
+        UIApplication.keyWindow()?.rootViewController = loginViewController
+    }
 }

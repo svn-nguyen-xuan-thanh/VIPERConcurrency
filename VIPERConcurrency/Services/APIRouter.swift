@@ -16,11 +16,14 @@ enum Constants {
 
 enum APIRouter {
     case login(userInfo: UserLoginInfo)
+    case fetchProducts
 
     private var method: HTTPMethod {
         switch self {
         case .login:
             return .post
+        case .fetchProducts:
+            return .get
         }
     }
 
@@ -32,6 +35,8 @@ enum APIRouter {
         switch self {
         case .login:
             return "auth/login"
+        case .fetchProducts:
+            return "products"
         }
     }
 
@@ -39,6 +44,8 @@ enum APIRouter {
         switch self {
         case .login:
             return JSONEncoding.default
+        case .fetchProducts:
+            return URLEncoding.default
         }
     }
 
@@ -46,6 +53,8 @@ enum APIRouter {
         switch self {
         case let .login(userInfo):
             return ["username": userInfo.username, "password": userInfo.password]
+        case .fetchProducts:
+            return ["limit": 0]
         }
     }
 

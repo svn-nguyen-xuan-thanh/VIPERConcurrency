@@ -7,6 +7,7 @@
 
 import Alamofire
 import Foundation
+import ProgressHUD
 
 enum APIError: Error {
     case offline
@@ -31,7 +32,7 @@ struct ErrorMessage: Decodable {
 
 final class APIService {
     private let session: Session
-    let connectivityManager: ConnectivityProtocol
+    private let connectivityManager: ConnectivityProtocol
 
     init(
         session: Session = Session.default,
@@ -45,19 +46,32 @@ final class APIService {
         if !connectivityManager.isReachable {
             throw APIError.offline
         }
+        await ProgressHUD.animate()
         return try await withCheckedThrowingContinuation { continuation in
             session.request(router).responseData { response in
                 print("[API]----Request: \(router.urlRequest?.httpMethod ?? "") " + (router.urlRequest?.url?.absoluteString ?? ""))
                 print("[API]----Response: \(String(data: response.data ?? Data(), encoding: .utf8)!)")
                 if let data = response.data {
                     if let value = try? JSONDecoder().decode(T.self, from: data) {
+                        Task { @MainActor in
+                            ProgressHUD.dismiss()
+                        }
                         continuation.resume(returning: value)
                     } else if let message = try? JSONDecoder().decode(ErrorMessage.self, from: data) {
+                        Task { @MainActor in
+                            ProgressHUD.dismiss()
+                        }
                         continuation.resume(throwing: APIError.invalidResponse(message: message.message))
                     } else {
+                        Task { @MainActor in
+                            ProgressHUD.dismiss()
+                        }
                         continuation.resume(throwing: APIError.unknown)
                     }
                 } else {
+                    Task { @MainActor in
+                        ProgressHUD.dismiss()
+                    }
                     continuation.resume(throwing: APIError.unknown)
                 }
             }

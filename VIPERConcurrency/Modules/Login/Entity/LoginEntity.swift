@@ -10,7 +10,7 @@ struct UserLoginInfo {
     let password: String
 }
 
-struct UserDetail: Decodable {
+struct UserDetail: Codable {
     let id: Int
     let username: String
     let email: String
@@ -19,4 +19,8 @@ struct UserDetail: Decodable {
     let firstName: String
     let lastName: String
     let image: String
+
+    var greeting: String {
+        "Hello \(firstName) \(lastName),"
+    }
 }

@@ -16,6 +16,10 @@ extension SwinjectStoryboard {
             return ConnectivityManager()
         }
 
+        defaultContainer.register(KeychainRepository.self) { _ in
+            return KeychainRepositoryImpl()
+        }
+
         defaultContainer.register(APIService.self) { resolver in
             let connectivityManager = resolver.resolve(ConnectivityProtocol.self)!
             return APIService(connectivityManager: connectivityManager)
@@ -25,6 +29,12 @@ extension SwinjectStoryboard {
         defaultContainer.register(UserRepository.self) { resolver in
             let api = resolver.resolve(APIService.self)!
             return UserRepositoryImpl(api)
+        }
+        .inObjectScope(.container)
+
+        defaultContainer.register(ProductRepository.self) { resolver in
+            let api = resolver.resolve(APIService.self)!
+            return ProductRepositoryImpl(api)
         }
         .inObjectScope(.container)
 
@@ -38,6 +48,14 @@ extension SwinjectStoryboard {
             let assembler = Assembler([LoginAssembly()])
             controller.presenter = assembler.resolver.resolve(
                 LoginPresenterProtocol.self,
+                argument: controller
+            )
+        }
+
+        defaultContainer.storyboardInitCompleted(HomeViewController.self) { resolver, controller in
+            let assembler = Assembler([HomeAssembly()])
+            controller.presenter = assembler.resolver.resolve(
+                HomePresenterProtocol.self,
                 argument: controller
             )
         }

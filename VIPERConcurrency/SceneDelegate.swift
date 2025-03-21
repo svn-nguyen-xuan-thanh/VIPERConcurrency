@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SwinjectStoryboard
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appPresenter: AppPresenterProtocol!
 
     func scene(
         _ scene: UIScene,
@@ -22,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        window?.rootViewController = R.storyboard.login.instantiateInitialViewController()
+        appPresenter = SwinjectStoryboard.defaultContainer.resolve(AppPresenterProtocol.self)!
+        appPresenter.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

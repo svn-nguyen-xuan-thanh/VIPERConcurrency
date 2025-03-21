@@ -1,5 +1,5 @@
 {
-  "originHash" : "958150c55bf0450a95ee5826e022f3cc6bc6a7323bde8a1aee9b990d37c0ccfa",
+  "originHash" : "1e703eeb17ebc747eabf3f0da3a1025cf88ed2dd8183389e98b6914c180b5855",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -92,6 +92,15 @@
       }
     },
     {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "4c6b067f96953ee19526e49e4189403a2be21fb3",
+        "version" : "8.3.1"
+      }
+    },
+    {
       "identity" : "progresshud",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/relatedcode/ProgressHUD.git",
@@ -116,6 +125,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6"
+      }
+    },
+    {
+      "identity" : "reusable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AliSoftware/Reusable.git",
+      "state" : {
+        "revision" : "18674709421360e210c2ecd4e8e08b217d4ea61d",
+        "version" : "4.1.2"
       }
     },
     {

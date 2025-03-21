@@ -10,6 +10,8 @@
 		F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */; };
 		F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E12D8CEEFC007BBEE8 /* ProgressHUD */; };
 		F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E82D8CF921007BBEE8 /* KeychainAccess */; };
+		F43561F52D8D07E8007BBEE8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F43561F42D8D07E8007BBEE8 /* Kingfisher */; };
+		F43562002D8D126F007BBEE8 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = F43561FF2D8D126F007BBEE8 /* Reusable */; };
 		F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7EE2D8C40D800331975 /* Alamofire */; };
 		F47DC7F62D8C425700331975 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7F52D8C425700331975 /* Swinject */; };
 		F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = F47DC7FA2D8C429700331975 /* SwinjectStoryboard */; };
@@ -63,11 +65,13 @@
 				F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */,
 				F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */,
 				F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */,
+				F43561F52D8D07E8007BBEE8 /* Kingfisher in Frameworks */,
 				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
 				F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */,
 				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
 				F47DC7F62D8C425700331975 /* Swinject in Frameworks */,
 				F47DC8C32D8C4A5B00331975 /* RswiftLibrary in Frameworks */,
+				F43562002D8D126F007BBEE8 /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +132,8 @@
 				F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */,
 				F43561E12D8CEEFC007BBEE8 /* ProgressHUD */,
 				F43561E82D8CF921007BBEE8 /* KeychainAccess */,
+				F43561F42D8D07E8007BBEE8 /* Kingfisher */,
+				F43561FF2D8D126F007BBEE8 /* Reusable */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -166,6 +172,8 @@
 				F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				F43561E02D8CEEFC007BBEE8 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 				F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				F43561F32D8D07E8007BBEE8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -478,6 +486,22 @@
 				kind = branch;
 			};
 		};
+		F43561F32D8D07E8007BBEE8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.1;
+			};
+		};
+		F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.2;
+			};
+		};
 		F47DC7ED2D8C40D800331975 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -535,6 +559,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		F43561F42D8D07E8007BBEE8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43561F32D8D07E8007BBEE8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		F43561FF2D8D126F007BBEE8 /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
 		};
 		F47DC7EE2D8C40D800331975 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

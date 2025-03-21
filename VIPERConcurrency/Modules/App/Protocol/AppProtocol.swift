@@ -9,6 +9,7 @@ import UIKit
 
 @MainActor
 protocol AppPresenterProtocol: AnyObject {
+    func start()
 }
 
 @MainActor
@@ -21,4 +22,6 @@ protocol AppInteractorOutputProtocol: AnyObject {
 
 @MainActor
 protocol AppRouterProtocol: AnyObject {
+    func navigateToHomeScreen()
+    func navigateToLoginScreen()
 }

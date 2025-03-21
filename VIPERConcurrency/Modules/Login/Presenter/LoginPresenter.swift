@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SwinjectStoryboard
 
 final class LoginPresenter: LoginPresenterProtocol {
     weak var view: LoginViewProtocol?
     var interactor: LoginInteractorInputProtocol!
     var router: LoginRouterProtocol!
+    private var keychainRepository = SwinjectStoryboard.defaultContainer.resolve(KeychainRepository.self)!
 
     func login(with userInfo: UserLoginInfo) {
         interactor.login(with: userInfo)
@@ -20,8 +22,10 @@ final class LoginPresenter: LoginPresenterProtocol {
 extension LoginPresenter:LoginInteractorOutputProtocol {
     func onloginSuccess(with userDetail: UserDetail) {
         view?.showMessage("Login successfully! Redirecting to home screen...")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.router.navigateToHomeScreen()
+        keychainRepository.userDetail = userDetail
+        Task {
+            try? await Task.sleep(nanoseconds: 2 * 1000000000)
+            router.navigateToHomeScreen()
         }
     }
 
