@@ -21,7 +21,7 @@ final class HomePresenter: HomePresenterProtocol {
             if let userDetail = await keychainService.read(ofType: UserDetail.self, key: .userDetail) {
                 view?.updateView(with: userDetail)
                 view?.showLoading()
-                interactor.fetchProducts()
+                interactor.fetchProducts(fetchFromLocal: true)
             } else {
                 router.navigateToLoginScreen()
             }
@@ -29,7 +29,7 @@ final class HomePresenter: HomePresenterProtocol {
     }
 
     func fetchProducts() {
-        interactor.fetchProducts()
+        interactor.fetchProducts(fetchFromLocal: false)
     }
 
     func navigateToSettingsScreen() {

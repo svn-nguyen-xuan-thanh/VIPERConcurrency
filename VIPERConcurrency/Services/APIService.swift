@@ -36,7 +36,6 @@ final class APIService {
         if !connectivityManager.isReachable {
             throw APIError.offline
         }
-        try await Task.sleep(nanoseconds: 3 * 1000000000)
         let request = try router.asURLRequest()
         let (data, _) = try await URLSession.shared.data(for: request)
 //        print("[API]----Request: \(request.httpMethod ?? "") " + (request.url?.absoluteString ?? ""))

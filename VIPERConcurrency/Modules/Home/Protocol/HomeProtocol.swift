@@ -25,7 +25,7 @@ protocol HomePresenterProtocol: AnyObject {
 
 @MainActor
 protocol HomeInteractorInputProtocol: AnyObject {
-    func fetchProducts()
+    func fetchProducts(fetchFromLocal: Bool)
 }
 
 @MainActor

@@ -15,14 +15,14 @@ enum FileSharedManager {
     }
 }
 
-protocol AppDatabase {
+protocol AppDatabase: Sendable {
     func getAll<T: DatabaseEntity>() async throws -> [T]
     func saveAll<T: DatabaseEntity>(_ records: [T]) async throws
 }
 
 typealias DatabaseEntity = FetchableRecord & PersistableRecord & TableRecord & Sendable
 
-final class AppDatabaseManager: AppDatabase, Sendable {
+final class AppDatabaseManager: AppDatabase {
     private enum DatabaseConstants {
         static let databaseFolder = "database"
         static let databaseName = "app.db"
@@ -45,9 +45,11 @@ final class AppDatabaseManager: AppDatabase, Sendable {
     }
 
     func getAll<T: DatabaseEntity>() async throws -> [T] {
-        return try await database.read { database in
+        let records = try await database.read { database in
             try T.fetchAll(database)
         }
+        print("Loaded \(records.count) records of type [\(T.self)] from local database.")
+        return records
     }
 
     func saveAll<T: DatabaseEntity>(_ records: [T]) async throws {
@@ -59,7 +61,8 @@ final class AppDatabaseManager: AppDatabase, Sendable {
                     }
                 }
             }
-            try await group.waitForAll()
+            for try await _ in group {}
         }
+        print("Saved \(records.count) records of type [\(T.self)] to local database.")
     }
 }
