@@ -3,7 +3,7 @@
 import UIKit
 
 @MainActor
-protocol ___VARIABLE_productName:identifier___ViewProtocol: AnyObject {
+protocol ___VARIABLE_productName:identifier___ViewProtocol: BaseViewProtocol {
 }
 
 @MainActor

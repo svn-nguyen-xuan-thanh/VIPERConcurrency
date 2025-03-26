@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-protocol SettingsViewProtocol: AnyObject {
+protocol SettingsViewProtocol: BaseViewProtocol {
 }
 
 @MainActor

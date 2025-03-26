@@ -15,12 +15,14 @@ final class LoginPresenter: LoginPresenterProtocol {
     private let keychainService = SwinjectStoryboard.defaultContainer.resolve(KeychainServiceProtocol.self)!
 
     func login(with userInfo: UserLoginInfo) {
+        view?.showLoading()
         interactor.login(with: userInfo)
     }
 }
 
 extension LoginPresenter:LoginInteractorOutputProtocol {
     func onloginSuccess(with userDetail: UserDetail) {
+        view?.hideLoading()
         view?.showMessage("Login successfully! Redirecting to home screen...")
         Task {
             await keychainService.write(userDetail, key: .userDetail)
@@ -34,6 +36,7 @@ extension LoginPresenter:LoginInteractorOutputProtocol {
         if let error = error as? APIError {
             message.append("\(error.errorMessage)!")
         }
+        view?.hideLoading()
         view?.showMessage(message)
     }
 }

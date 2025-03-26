@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-protocol HomeViewProtocol: AnyObject {
+protocol HomeViewProtocol: BaseViewProtocol {
     func updateView(with userDetail: UserDetail)
     func reloadTableView()
     func showMessage(_ message: String)
@@ -30,7 +30,7 @@ protocol HomeInteractorInputProtocol: AnyObject {
 
 @MainActor
 protocol HomeInteractorOutputProtocol: AnyObject {
-    func onFetchProductsSuccess(with products: [Product])
+    func onFetchProductsSuccess(with products: [Product], fromLocal: Bool)
     func onFetchProductsFailure(with error: Error)
 }
 

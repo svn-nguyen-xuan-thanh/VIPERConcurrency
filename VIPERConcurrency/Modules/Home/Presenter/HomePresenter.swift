@@ -20,6 +20,7 @@ final class HomePresenter: HomePresenterProtocol {
         Task {
             if let userDetail = await keychainService.read(ofType: UserDetail.self, key: .userDetail) {
                 view?.updateView(with: userDetail)
+                view?.showLoading()
                 interactor.fetchProducts()
             } else {
                 router.navigateToLoginScreen()
@@ -37,8 +38,11 @@ final class HomePresenter: HomePresenterProtocol {
 }
 
 extension HomePresenter:HomeInteractorOutputProtocol {
-    func onFetchProductsSuccess(with products: [Product]) {
+    func onFetchProductsSuccess(with products: [Product], fromLocal: Bool) {
         self.products = products
+        if !fromLocal {
+            view?.hideLoading()
+        }
         view?.reloadTableView()
     }
 
@@ -47,6 +51,7 @@ extension HomePresenter:HomeInteractorOutputProtocol {
         if let error = error as? APIError {
             message.append(error.errorMessage)
         }
+        view?.hideLoading()
         view?.showMessage(message)
     }
 }

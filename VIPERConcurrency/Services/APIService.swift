@@ -7,7 +7,6 @@
 
 import Alamofire
 import Foundation
-import ProgressHUD
 
 enum APIError: Error {
     case offline
@@ -37,12 +36,11 @@ final class APIService {
         if !connectivityManager.isReachable {
             throw APIError.offline
         }
-        await ProgressHUD.animate()
+        try await Task.sleep(nanoseconds: 3 * 1000000000)
         let request = try router.asURLRequest()
         let (data, _) = try await URLSession.shared.data(for: request)
-        await ProgressHUD.dismiss()
-        print("[API]----Request: \(request.httpMethod ?? "") " + (request.url?.absoluteString ?? ""))
-        print("[API]----Response: \(String(data: data, encoding: .utf8)!)")
+//        print("[API]----Request: \(request.httpMethod ?? "") " + (request.url?.absoluteString ?? ""))
+//        print("[API]----Response: \(String(data: data, encoding: .utf8)!)")
         if let value = try? JSONDecoder().decode(T.self, from: data) {
             return value
         } else if let message = try? JSONDecoder().decode(ErrorMessage.self, from: data) {
@@ -56,12 +54,8 @@ final class APIService {
         if !connectivityManager.isReachable {
             throw APIError.offline
         }
-        await ProgressHUD.animate()
         return try await withCheckedThrowingContinuation { continuation in
             Session.default.request(router).responseData { response in
-                Task {
-                    await ProgressHUD.dismiss()
-                }
                 print("[API]----Request: \(router.urlRequest?.httpMethod ?? "") " + (router.urlRequest?.url?.absoluteString ?? ""))
                 print("[API]----Response: \(String(data: response.data ?? Data(), encoding: .utf8)!)")
                 if let data = response.data {

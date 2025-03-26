@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40D22942D929CFA00D16685 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A40D22932D929CFA00D16685 /* GRDB */; };
 		F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */; };
 		F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E12D8CEEFC007BBEE8 /* ProgressHUD */; };
 		F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E82D8CF921007BBEE8 /* KeychainAccess */; };
@@ -66,6 +67,7 @@
 				F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */,
 				F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */,
 				F43561F52D8D07E8007BBEE8 /* Kingfisher in Frameworks */,
+				A40D22942D929CFA00D16685 /* GRDB in Frameworks */,
 				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
 				F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */,
 				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
@@ -134,6 +136,7 @@
 				F43561E82D8CF921007BBEE8 /* KeychainAccess */,
 				F43561F42D8D07E8007BBEE8 /* Kingfisher */,
 				F43561FF2D8D126F007BBEE8 /* Reusable */,
+				A40D22932D929CFA00D16685 /* GRDB */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -174,6 +177,7 @@
 				F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				F43561F32D8D07E8007BBEE8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */,
+				A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -462,6 +466,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -545,6 +557,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A40D22932D929CFA00D16685 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

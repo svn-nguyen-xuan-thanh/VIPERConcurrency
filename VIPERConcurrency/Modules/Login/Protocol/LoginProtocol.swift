@@ -8,7 +8,7 @@
 import UIKit
 
 @MainActor
-protocol LoginViewProtocol: AnyObject {
+protocol LoginViewProtocol: BaseViewProtocol {
     func showMessage(_ message: String)
 }
 

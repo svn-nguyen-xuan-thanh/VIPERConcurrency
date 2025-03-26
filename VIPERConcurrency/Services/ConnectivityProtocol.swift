@@ -12,7 +12,7 @@ protocol ConnectivityProtocol {
 }
 
 final class ConnectivityManager: ConnectivityProtocol {
-    private var reachability: Reachability?
+    private let reachability: Reachability?
 
     init() {
         reachability = try? Reachability()

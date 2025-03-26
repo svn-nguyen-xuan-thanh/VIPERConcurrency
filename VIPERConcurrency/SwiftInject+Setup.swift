@@ -26,6 +26,11 @@ extension SwinjectStoryboard {
         }
         .inObjectScope(.container)
 
+        defaultContainer.register(AppDatabase.self) { resolver in
+            return AppDatabaseManager()
+        }
+        .inObjectScope(.container)
+
         defaultContainer.register(UserRepository.self) { resolver in
             let api = resolver.resolve(APIService.self)!
             return UserRepositoryImpl(api)
