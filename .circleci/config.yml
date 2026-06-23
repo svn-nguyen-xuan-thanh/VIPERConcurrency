@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build
           command: |
-            xcodebuild -project VIPERConcurrency.xcodeproj -scheme VIPERConcurrency -destination 'platform=iOS Simulator' build
+            xcodebuild -project VIPERConcurrency.xcodeproj -scheme VIPERConcurrency -destination 'platform:iOS Simulator, OS:26.4.1, name:iPhone 17' build
 
 workflows:
   version: 2
