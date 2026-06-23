@@ -7,12 +7,17 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import DebugSwift
+import SkyWayRoom
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    private let debugSwift = DebugSwift()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.isEnabled = true
+        debugSwift.setup()
+        debugSwift.show()
         return true
     }
 

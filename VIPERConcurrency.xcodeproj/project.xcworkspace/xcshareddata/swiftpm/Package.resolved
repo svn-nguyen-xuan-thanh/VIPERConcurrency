@@ -1,5 +1,5 @@
 {
-  "originHash" : "683adc45f156412f3401a554ab21bc52b9cd3f1c70b282e6bd335d8189084507",
+  "originHash" : "984374099cbce682047b93a0d00cc80a808b8361de44c868fbf2575fb04f1dd8",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -11,12 +11,30 @@
       }
     },
     {
+      "identity" : "debugswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DebugSwift/DebugSwift.git",
+      "state" : {
+        "revision" : "a61ed10addb0d453a0b78798dff45bf02e74f17e",
+        "version" : "1.16.0"
+      }
+    },
+    {
       "identity" : "grdb.swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/groue/GRDB.swift.git",
+      "location" : "https://github.com/svn-nguyen-xuan-thanh/GRDB.swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "52b7b7bd26821c67f1c26b5e248fd6bcac4903a7"
+        "revision" : "1648268a79cc8f6392c8f4763f4f2255a8579f57"
+      }
+    },
+    {
+      "identity" : "ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/skyway/ios-sdk.git",
+      "state" : {
+        "revision" : "0a9b7265f0f78e09e1d5823304d750c7ad77e79a",
+        "version" : "3.6.1"
       }
     },
     {
@@ -143,6 +161,15 @@
       "state" : {
         "revision" : "18674709421360e210c2ecd4e8e08b217d4ea61d",
         "version" : "4.1.2"
+      }
+    },
+    {
+      "identity" : "sqlcipher.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sqlcipher/SQLCipher.swift.git",
+      "state" : {
+        "revision" : "07bf6bc2191a063d6f1e7c3b5f276a3fadfe36b7",
+        "version" : "4.16.0"
       }
     },
     {

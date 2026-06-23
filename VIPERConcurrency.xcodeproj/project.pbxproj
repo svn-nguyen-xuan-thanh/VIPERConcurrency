@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A40D22942D929CFA00D16685 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A40D22932D929CFA00D16685 /* GRDB */; };
+		4B8C152C2FEA30CE00A925BB /* SkyWayRoom in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C152B2FEA30CE00A925BB /* SkyWayRoom */; };
+		4B8C15302FEA30E500A925BB /* DebugSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C152F2FEA30E500A925BB /* DebugSwift */; };
+		4B8C15342FEA310A00A925BB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C15332FEA310A00A925BB /* GRDB */; };
 		F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */; };
 		F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E12D8CEEFC007BBEE8 /* ProgressHUD */; };
 		F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E82D8CF921007BBEE8 /* KeychainAccess */; };
@@ -63,11 +65,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8C152C2FEA30CE00A925BB /* SkyWayRoom in Frameworks */,
 				F47DC7EF2D8C40D800331975 /* Alamofire in Frameworks */,
+				4B8C15302FEA30E500A925BB /* DebugSwift in Frameworks */,
 				F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */,
 				F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */,
+				4B8C15342FEA310A00A925BB /* GRDB in Frameworks */,
 				F43561F52D8D07E8007BBEE8 /* Kingfisher in Frameworks */,
-				A40D22942D929CFA00D16685 /* GRDB in Frameworks */,
 				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
 				F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */,
 				F47DC7FB2D8C429700331975 /* SwinjectStoryboard in Frameworks */,
@@ -136,7 +140,9 @@
 				F43561E82D8CF921007BBEE8 /* KeychainAccess */,
 				F43561F42D8D07E8007BBEE8 /* Kingfisher */,
 				F43561FF2D8D126F007BBEE8 /* Reusable */,
-				A40D22932D929CFA00D16685 /* GRDB */,
+				4B8C152B2FEA30CE00A925BB /* SkyWayRoom */,
+				4B8C152F2FEA30E500A925BB /* DebugSwift */,
+				4B8C15332FEA310A00A925BB /* GRDB */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -177,7 +183,9 @@
 				F43561E72D8CF921007BBEE8 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				F43561F32D8D07E8007BBEE8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */,
-				A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */,
+				4B8C152E2FEA30E500A925BB /* XCRemoteSwiftPackageReference "DebugSwift" */,
+				4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -466,9 +474,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+		4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			repositoryURL = "https://github.com/skyway/ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.6.1;
+			};
+		};
+		4B8C152E2FEA30E500A925BB /* XCRemoteSwiftPackageReference "DebugSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DebugSwift/DebugSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.0;
+			};
+		};
+		4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/svn-nguyen-xuan-thanh/GRDB.swift.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -557,9 +581,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A40D22932D929CFA00D16685 /* GRDB */ = {
+		4B8C152B2FEA30CE00A925BB /* SkyWayRoom */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A40D22922D929CFA00D16685 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			package = 4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			productName = SkyWayRoom;
+		};
+		4B8C152F2FEA30E500A925BB /* DebugSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B8C152E2FEA30E500A925BB /* XCRemoteSwiftPackageReference "DebugSwift" */;
+			productName = DebugSwift;
+		};
+		4B8C15332FEA310A00A925BB /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
 		};
 		F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */ = {

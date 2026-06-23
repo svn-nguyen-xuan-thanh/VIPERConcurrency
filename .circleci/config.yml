@@ -11,9 +11,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Bundler and Gems
+          name: Resolve Swift Package Dependencies
           command: |
             xcodebuild -resolvePackageDependencies -project VIPERConcurrency.xcodeproj -scheme VIPERConcurrency
+      - run:
+          name: Build
+          command: |
+            xcodebuild -project VIPERConcurrency.xcodeproj -scheme VIPERConcurrency build
 
 workflows:
   version: 2
