@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B329140300F08B000936EAA /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4B32913F300F08B000936EAA /* GRDB */; };
 		4B8C152C2FEA30CE00A925BB /* SkyWayRoom in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C152B2FEA30CE00A925BB /* SkyWayRoom */; };
 		4B8C15302FEA30E500A925BB /* DebugSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C152F2FEA30E500A925BB /* DebugSwift */; };
-		4B8C15342FEA310A00A925BB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 4B8C15332FEA310A00A925BB /* GRDB */; };
 		F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */; };
 		F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E12D8CEEFC007BBEE8 /* ProgressHUD */; };
 		F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = F43561E82D8CF921007BBEE8 /* KeychainAccess */; };
@@ -70,7 +70,7 @@
 				4B8C15302FEA30E500A925BB /* DebugSwift in Frameworks */,
 				F43561E22D8CEEFC007BBEE8 /* ProgressHUD in Frameworks */,
 				F43561D02D8CE840007BBEE8 /* IQKeyboardManagerSwift in Frameworks */,
-				4B8C15342FEA310A00A925BB /* GRDB in Frameworks */,
+				4B329140300F08B000936EAA /* GRDB in Frameworks */,
 				F43561F52D8D07E8007BBEE8 /* Kingfisher in Frameworks */,
 				F47DC8F22D8C5DC300331975 /* Reachability in Frameworks */,
 				F43561E92D8CF921007BBEE8 /* KeychainAccess in Frameworks */,
@@ -142,7 +142,7 @@
 				F43561FF2D8D126F007BBEE8 /* Reusable */,
 				4B8C152B2FEA30CE00A925BB /* SkyWayRoom */,
 				4B8C152F2FEA30E500A925BB /* DebugSwift */,
-				4B8C15332FEA310A00A925BB /* GRDB */,
+				4B32913F300F08B000936EAA /* GRDB */,
 			);
 			productName = VIPERConcurrency;
 			productReference = F4E9DD402D8C3D400055BBBD /* VIPERConcurrency.app */;
@@ -185,7 +185,7 @@
 				F43561FE2D8D126F007BBEE8 /* XCRemoteSwiftPackageReference "Reusable" */,
 				4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */,
 				4B8C152E2FEA30E500A925BB /* XCRemoteSwiftPackageReference "DebugSwift" */,
-				4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				4B32913E300F08B000936EAA /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F4E9DD412D8C3D400055BBBD /* Products */;
@@ -474,6 +474,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4B32913E300F08B000936EAA /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/svn-nguyen-xuan-thanh/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/skyway/ios-sdk.git";
@@ -488,14 +496,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.16.0;
-			};
-		};
-		4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/svn-nguyen-xuan-thanh/GRDB.swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 		F43561CE2D8CE840007BBEE8 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -581,6 +581,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4B32913F300F08B000936EAA /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B32913E300F08B000936EAA /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		4B8C152B2FEA30CE00A925BB /* SkyWayRoom */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4B8C152A2FEA30CE00A925BB /* XCRemoteSwiftPackageReference "ios-sdk" */;
@@ -590,11 +595,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4B8C152E2FEA30E500A925BB /* XCRemoteSwiftPackageReference "DebugSwift" */;
 			productName = DebugSwift;
-		};
-		4B8C15332FEA310A00A925BB /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4B8C15322FEA310A00A925BB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
 		};
 		F43561CF2D8CE840007BBEE8 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
