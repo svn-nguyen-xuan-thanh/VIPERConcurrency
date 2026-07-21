@@ -13,7 +13,7 @@ jobs:
     executor: ios-executor
     steps:
       - macos/preboot-simulator:
-          version: "26.3"
+          version: "26.2"
           platform: "iOS"
           device: "iPhone 17 Pro"
       - checkout
