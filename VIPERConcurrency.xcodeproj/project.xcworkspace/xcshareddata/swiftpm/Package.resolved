@@ -24,8 +24,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/svn-nguyen-xuan-thanh/GRDB.swift.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "1648268a79cc8f6392c8f4763f4f2255a8579f57"
+        "revision" : "9bf75c3824ec81678a67d5ed5c407aa705690795"
       }
     },
     {
