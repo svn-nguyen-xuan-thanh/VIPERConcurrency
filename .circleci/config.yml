@@ -1,14 +1,21 @@
 version: 2.1
 
+orbs:
+  macos: circleci/macos@2.5.2
+
 executors:
   ios-executor:
     macos:
-      xcode: 26.4.0
+      xcode: 26.3.0
 
 jobs:
   build-and-test:
     executor: ios-executor
     steps:
+      - macos/preboot-simulator:
+          version: "26.3"
+          platform: "iOS"
+          device: "iPhone 17 Pro"
       - checkout
       - run:
           name: Resolve Swift Package Dependencies
